@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePortfolioRequest;
 use App\Http\Requests\UpdatePortfolioRequest;
 use App\Models\Portfolio;
+use App\Models\Tecnology;
 use App\Models\Type;
 
 class PortfolioController extends Controller
@@ -29,7 +30,8 @@ class PortfolioController extends Controller
         return view('admin.create');
 
         $types = Type::all();
-        return view('admin.create', compact('types'));
+        $tecnologies = Tecnology::all();
+        return view('admin.create', compact('types', 'tecnologies'));
 
     }
 
@@ -46,6 +48,8 @@ class PortfolioController extends Controller
         $newProject = new Portfolio();
         $newProject->fill($data);
         $newProject->save();
+
+        $newProject->tecnologies()->attach( $data["tecnologies"] );
 
         return redirect()->route('admin.dashboard', $newProject->id);
     }

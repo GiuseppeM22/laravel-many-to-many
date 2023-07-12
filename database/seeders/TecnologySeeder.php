@@ -19,7 +19,7 @@ class TecnologySeeder extends Seeder
 
         foreach($tecnologies as $tecnology){
             $newTecnology = new Tecnology();
-            $newTecnology->name = $tecnology("name") ;
+            $newTecnology->name = $tecnology;
             $newTecnology->save();
 
         }

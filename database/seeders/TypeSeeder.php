@@ -15,12 +15,14 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $type = new Type();
-        $type->name = 'javascript';
-        $type->save();
+        $types = ['css', 'javascript', 'php', 'java'];
 
-        $type = new Type();
-        $type->name = 'php';
-        $type->save();
+        foreach($types as $type){
+            $newType = new Type();
+            $newType->name = $type;
+            $newType->save();
+
+        }
+
     }
 }

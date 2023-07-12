@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tecnology extends Model
 {
     use HasFactory;
+
+     // definiamo il rapporto many to many con type
+     public function types(){
+        return $this->belongsToMany(Type::class);
+    }
 }

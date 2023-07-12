@@ -28,7 +28,9 @@ class UpdatePortfolioRequest extends FormRequest
             "image"=>"required",
             "description"=>"required",
             "link"=>"required",
-            "types_id" => "nullable|exists:types,id"
+            "types_id" => "nullable|exists:types,id",
+            "tecnologies" => "nullable|exists:tecnologies,id"
+
         ];
     }
 }
