@@ -17,7 +17,10 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        $tecnologies = Tecnology::all();
+        return view('admin.dashboard', compact('types', 'tecnologies'));
+        
     }
 
     /**
